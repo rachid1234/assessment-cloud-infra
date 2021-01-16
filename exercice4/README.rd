@@ -8,7 +8,7 @@ After that i tried to change the application pool of the web app and found that 
 
 Then tried to check the event log. 
 
-After further investigations i found that the Application Identity was not set ApplicationPoolIdentity which didn't allow the pool to access that.
+After further investigations i found that the Application Identity was not set properly to ApplicationPoolIdentity.
 
 
 
