@@ -1,0 +1,20 @@
+
+
+### Troubleshooting process
+
+- First of, i started by checking the redis service to see if it is stated by executing the command service redis status 
+
+- I found that the service is down, the i proceeded to look into the logs i found that there is an error in the configuration file :
+
+amine@amine-lnx:~$ journalctl -xe
+
+-- Unit redis-server.service has begun starting up.
+Jan 16 10:23:17 amine-lnx run-parts[12263]: run-parts: executing /etc/redis/redis-server.pre-up.d/00_example
+Jan 16 10:23:17 amine-lnx redis-server[12275]: *** FATAL CONFIG FILE ERROR ***
+Jan 16 10:23:17 amine-lnx redis-server[12275]: Reading the configuration file, at line 108
+Jan 16 10:23:17 amine-lnx redis-server[12275]: >>> 'logfile /var/log/redis-server.log'
+Jan 16 10:23:17 amine-lnx redis-server[12275]: Can't open the log file: Read-only file system
+Jan 16 10:23:17 amine-lnx systemd[1]: redis-server.service: Control process exited, code=exited status=1
+Jan 16 10:23:17 amine-lnx systemd[1]: Failed to start Advanced key-value store.
+
+After searching for the logfile, i found that the path in the configuration file is not correct. The redis-server.log is under /var/log/redis and this is the reason the redis service could not start. I then corrected the config file and started the service.
