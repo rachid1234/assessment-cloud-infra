@@ -13,3 +13,6 @@ terraform apply
 
 
 NOTE: "As i have already used my Azure free tier subscription, i couldn't start a new free tier subscription. I didn't have the chance to test the scripts"
+
+
+#########
