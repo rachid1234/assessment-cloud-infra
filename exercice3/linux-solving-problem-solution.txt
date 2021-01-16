@@ -17,4 +17,8 @@ Jan 16 10:23:17 amine-lnx redis-server[12275]: Can't open the log file: Read-onl
 Jan 16 10:23:17 amine-lnx systemd[1]: redis-server.service: Control process exited, code=exited status=1
 Jan 16 10:23:17 amine-lnx systemd[1]: Failed to start Advanced key-value store.
 
-After searching for the logfile, i found that the path in the configuration file is not correct. The redis-server.log is under /var/log/redis and this is the reason the redis service could not start. I then corrected the config file and started the service.
+- After searching for the logfile, i found that the path in the configuration file is not correct.
+
+- The redis-server.log is under /var/log/redis and this is the reason the redis service could not start.
+
+- I then corrected the config file and started the service.
